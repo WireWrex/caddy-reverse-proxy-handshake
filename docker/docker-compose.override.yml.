@@ -5,7 +5,7 @@ services:
     environment:
       DDNS_DOMAIN: dyn.hydrodns                      
       DDNS_SOA_DOMAIN: hydrodns              
-      DDNS_EXPIRATION_DAYS: 10
+      DDNS_EXPIRATION_DAYS: 180
 
   powerdns:
     ports:
