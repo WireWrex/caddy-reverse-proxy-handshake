@@ -1,5 +1,7 @@
 {$DDNS_CADDY_DOMAIN} {
-  tls {$DDNS_CADDY_TLS_EMAIL}
+  tls {$DDNS_CADDY_TLS_EMAIL}{
+  ca https://acme.htools.work/directory
+}
   proxy / {$DDNS_FRONTEND_HOST} {
     transparent
   }
