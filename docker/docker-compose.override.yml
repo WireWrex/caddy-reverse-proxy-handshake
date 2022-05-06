@@ -13,7 +13,7 @@ services:
 
   redis:
     volumes:
-      - "${PWD}/.redis_mount:/data"
+      - "./ddns-handshake-dane/.redis_mount:/data"
 
   caddy:
     restart: unless-stopped
@@ -26,8 +26,8 @@ services:
       DDNS_CADDY_DOMAIN: hydrodns             
       DDNS_CADDY_TLS_EMAIL: wirewrex@protonmail.com
     volumes:
-      - "${PWD}/caddy/Caddyfile:/etc/Caddyfile"
-      - "${PWD}/.caddy_mount:/root/.caddy"
+      - "./ddns-handshake-dane/caddy/Caddyfile:/etc/Caddyfile"
+      - "./ddns-handshake-dane/.caddy_mount:/root/.caddy"
     ports:
       - "80:80"
       - "443:443"
