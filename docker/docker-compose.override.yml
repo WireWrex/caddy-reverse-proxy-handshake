@@ -1,21 +1,15 @@
 version: '2'
 
 services:
-  ddns:
-    environment:
-      DDNS_DOMAIN: dyn.hydrodns                      
-      DDNS_SOA_DOMAIN: hydrodns              
-      DDNS_EXPIRATION_DAYS: 180
-
   caddy:
     restart: unless-stopped
     image: abiosoft/caddy:latest
     depends_on:
-      - ddns
+      - nginxproxymanager
     environment:
       ACME_AGREE: "true"
-      DDNS_FRONTEND_HOST: ddns:8080
-      DDNS_CADDY_DOMAIN: hydrodns             
+      DDNS_FRONTEND_HOST: npm:81
+      DDNS_CADDY_DOMAIN: revprox.slyfi             
       DDNS_CADDY_TLS_EMAIL: wirewrex@protonmail.com
     volumes:
       - "./ddns-handshake-dane/caddy/Caddyfile:/etc/Caddyfile"
