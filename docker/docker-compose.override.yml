@@ -7,14 +7,6 @@ services:
       DDNS_SOA_DOMAIN: hydrodns              
       DDNS_EXPIRATION_DAYS: 180
 
-  powerdns:
-    ports:
-      - "53:53/udp"
-
-  redis:
-    volumes:
-      - "./ddns-handshake-dane/.redis_mount:/data"
-
   caddy:
     restart: unless-stopped
     image: abiosoft/caddy:latest
