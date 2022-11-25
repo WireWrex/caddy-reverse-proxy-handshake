@@ -12,8 +12,8 @@ services:
       DDNS_CADDY_DOMAIN: revprox.slyfi             
       DDNS_CADDY_TLS_EMAIL: wirewrex@protonmail.com
     volumes:
-      - "./ddns-handshake-dane/caddy/Caddyfile:/etc/Caddyfile"
-      - "./ddns-handshake-dane/.caddy_mount:/root/.caddy"
+      - "./caddy-reverse-proxy-handshake/caddy/Caddyfile:/etc/Caddyfile"
+      - "./caddy-reverse-proxy-handshake/.caddy_mount:/root/.caddy"
     ports:
       - "80:80"
       - "443:443"
