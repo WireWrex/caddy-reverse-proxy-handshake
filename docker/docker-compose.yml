@@ -3,14 +3,12 @@ version: '2'
 services:
   caddy:
     restart: unless-stopped
-    image: abiosoft/caddy:latest
-    depends_on:
-      - nginxproxymanager
+    image: abiosoft/caddy:no-stats
     environment:
       ACME_AGREE: "true"
-      DDNS_FRONTEND_HOST: npm:81
-      DDNS_CADDY_DOMAIN: revprox.slyfi             
-      DDNS_CADDY_TLS_EMAIL: wirewrex@protonmail.com
+      FRONTEND_HOST: npm:81
+      CADDY_DOMAIN: revprox.slyfi             
+      CADDY_TLS_EMAIL: wirewrex@protonmail.com
     volumes:
       - "./caddy-reverse-proxy-handshake/caddy/Caddyfile:/etc/Caddyfile"
       - "./caddy-reverse-proxy-handshake/.caddy_mount:/root/.caddy"
